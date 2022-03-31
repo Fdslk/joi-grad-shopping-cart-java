@@ -91,4 +91,16 @@ public class ShoppingCartTest {
 
         assertEquals(5, order.getLoyaltyPoints());
     }
+
+    //TODO: get n + n mod 2 based on name
+    @Test
+    public void shouldCalculatePriceIsEqual200WhenOnlyThreeSameFoodsWithBULK_BUY_2_GET_1() {
+        List<Product> products = asList(
+                new Product(PRICE, "BULK_BUY_2_GET_1", "product1")
+                , new Product(PRICE, "BULK_BUY_2_GET_1", "product1"));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkForBULK_BUY_2_GET_1();
+
+        assertEquals(200.0, order.getTotalPrice(), 0.0);
+    }
 }
