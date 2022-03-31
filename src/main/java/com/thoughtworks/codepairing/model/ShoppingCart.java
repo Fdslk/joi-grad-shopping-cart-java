@@ -28,6 +28,9 @@ public class ShoppingCart {
             } else if (product.getProductCode().startsWith("DIS_15")) {
                 discount = (product.getPrice() * 0.15);
                 loyaltyPointsEarned += (product.getPrice() / 15);
+            }else if (product.getProductCode().startsWith("DIS_20")) {
+                discount = (product.getPrice() * 0.2);
+                loyaltyPointsEarned += (product.getPrice() / 20);
             } else {
                 loyaltyPointsEarned += (product.getPrice() / 5);
             }

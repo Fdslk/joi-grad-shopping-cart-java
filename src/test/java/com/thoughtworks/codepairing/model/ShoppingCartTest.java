@@ -73,4 +73,22 @@ public class ShoppingCartTest {
 
         assertEquals(6, order.getLoyaltyPoints());
     }
+
+    @Test
+    public void shouldCalculatePriceFor20PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_20_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(80.0, order.getTotalPrice(), 0.0);
+    }
+
+    @Test
+    public void shouldCalculateLoyaltyPointsFor20PercentDiscount() {
+        List<Product> products = asList(new Product(PRICE, "DIS_20_ABCD", PRODUCT));
+        ShoppingCart cart = new ShoppingCart(customer, products);
+        Order order = cart.checkout();
+
+        assertEquals(5, order.getLoyaltyPoints());
+    }
 }
